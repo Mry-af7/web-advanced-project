@@ -1,13 +1,24 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web-adv-project</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Advanced Project</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1></h1>
+            <div class="controls">
+                <input type="text" id="search-input" placeholder="Zoek een anime...">
+                <button id="search-btn">Zoek</button>
+            </div>
+        </header>
+        
+        <main id="anime-list"></main>
+    </div>
+
+    <script type="module" src="./src/js/main.js"></script>
+</body>
 </html>
