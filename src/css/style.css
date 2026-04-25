@@ -104,3 +104,9 @@ header {
     border-radius: 5px;
     margin: 15px;
 }
+
+.fav-btn.active {
+    background-color: #e74c3c; 
+    color: white;
+    content: "❤️ In Favorieten";
+}

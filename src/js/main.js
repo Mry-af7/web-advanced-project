@@ -55,31 +55,42 @@ function toonAnime(anime) {
             </div>
         </div>
 
-        <button class="fav-btn">Favoriet</button>
+        <button class="fav-btn">❤️ Favoriet</button>
     `;
 
 //fav button
-const favBtn = card.querySelector(".fav-btn");        
+const favBtn = card.querySelector(".fav-btn");
+
+    let favorieten = JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
+
+    const staatAlInLijst = favorieten.some(fav => fav.mal_id === anime.mal_id);
     
- favBtn.addEventListener("click", () => {   
-
-    let favorieten =
-        JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
-
-    //check for dups
-    const bestaatAl = favorieten.some(fav => fav.mal_id === anime.mal_id);
-
-    if (!bestaatAl) {
-        favorieten.push(anime);
-        localStorage.setItem(
-            "mijnFavorieten",
-            JSON.stringify(favorieten)
-        );
-        console.log("Toegevoegd:", anime.title);
-    } else {
-        console.log("Bestaat al in favorieten");
+    if (staatAlInLijst) {
+        favBtn.classList.add("active");
+        favBtn.innerText = "❤️ In Favorieten";
     }
-});
+
+    favBtn.addEventListener("click", () => {
+        let actueleFavorieten = JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
+        
+        const index = actueleFavorieten.findIndex(fav => fav.mal_id === anime.mal_id);
+
+        if (index === -1) {
+            actueleFavorieten.push(anime);
+            favBtn.classList.add("active");
+            favBtn.innerText = "❤️ In Favorieten";
+
+            console.log("Toegevoegd:", anime.title);
+        } else {
+            actueleFavorieten.splice(index, 1);
+            favBtn.classList.remove("active");
+            favBtn.innerText = "Favoriet";
+
+            console.log("Verwijderd:", anime.title);
+        }
+
+        localStorage.setItem("mijnFavorieten", JSON.stringify(actueleFavorieten));
+    });
 
     animeList.appendChild(card);
 }
