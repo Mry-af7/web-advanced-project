@@ -1,7 +1,9 @@
 
 const animeList = document.getElementById("anime-list");
-
 const apiURL = 'https://api.jikan.moe/v4/top/anime';
+
+const zoekBtn = document.getElementById("search-btn");
+const zoekInput = document.getElementById("search-input");
 
 //functie voor data
 async function haalAnimeOp() {
@@ -14,20 +16,31 @@ async function haalAnimeOp() {
         resultaat.data.forEach(anime => {
             toonAnime(anime);
         });
-
     } catch (fout) {
-        console.log("Fout:", fout);
+        console.log("Fout bij ophalen top anime:", fout);
     }
 }
 
+//search functie
+async function zoekAnime(query) {
+    try {
+        const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}&limit=20`);
+        const resultaat = await response.json();
+        
+        animeList.innerHTML = ""; 
+        resultaat.data.forEach(anime => toonAnime(anime));
+    } catch (fout) {
+        console.log("Zoekfout:", fout);
+    }
+}
 
-
-//functie anime
+//functie anime-card
 function toonAnime(anime) {
 
     const card = document.createElement("article");
     card.classList.add("anime-card");
 
+    //template
     card.innerHTML = `
         <img src="${anime.images.jpg.image_url}">
 
@@ -48,4 +61,20 @@ function toonAnime(anime) {
     animeList.appendChild(card);
 }
 
+//seach w button
+zoekBtn.addEventListener("click", () => {
+    const zoekTerm = zoekInput.value;
+    if (zoekTerm) {
+        zoekAnime(zoekTerm);
+    }
+});
+
+//search w enter
+zoekInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        zoekBtn.click();
+    }
+});
+
 haalAnimeOp();
+
