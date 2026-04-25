@@ -66,7 +66,7 @@ const favBtn = card.querySelector(".fav-btn");
     let favorieten =
         JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
 
-    // check for dups
+    //check for dups
     const bestaatAl = favorieten.some(fav => fav.mal_id === anime.mal_id);
 
     if (!bestaatAl) {
@@ -96,6 +96,24 @@ zoekBtn.addEventListener("click", () => {
 zoekInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         zoekBtn.click();
+    }
+});
+
+//Mijn favorieten 
+const favListBtn = document.getElementById("fav-list-btn");
+
+favListBtn.addEventListener("click", () => {
+    const favorieten = JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
+
+    const animeList = document.getElementById("anime-list");
+    animeList.innerHTML = "";
+
+    if (favorieten.length == 0) {
+        animeList.innerHTML = "<p>Je hebt nog geen favorieten opgeslagen.</p>";
+    } else {
+        favorieten.forEach(anime => {
+            toonAnime(anime);
+        });
     }
 });
 

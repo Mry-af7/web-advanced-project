@@ -27,7 +27,18 @@ header {
     border: none;
 }
 
+/*[ZOEK]*/
 #search-btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*[Mijn Fav]*/
+#fav-list-btn {
     padding: 10px 20px;
     background-color: #e74c3c;
     color: white;
