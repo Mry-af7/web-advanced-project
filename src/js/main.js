@@ -58,6 +58,29 @@ function toonAnime(anime) {
         <button class="fav-btn">Favoriet</button>
     `;
 
+//fav button
+const favBtn = card.querySelector(".fav-btn");        
+    
+ favBtn.addEventListener("click", () => {   
+
+    let favorieten =
+        JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
+
+    // check for dups
+    const bestaatAl = favorieten.some(fav => fav.mal_id === anime.mal_id);
+
+    if (!bestaatAl) {
+        favorieten.push(anime);
+        localStorage.setItem(
+            "mijnFavorieten",
+            JSON.stringify(favorieten)
+        );
+        console.log("Toegevoegd:", anime.title);
+    } else {
+        console.log("Bestaat al in favorieten");
+    }
+});
+
     animeList.appendChild(card);
 }
 
