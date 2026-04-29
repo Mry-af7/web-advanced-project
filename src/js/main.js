@@ -1,6 +1,6 @@
 
 const animeList = document.getElementById("anime-list");
-const apiURL = 'https://api.jikan.moe/v4/top/anime';
+const apiURL = 'https://api.jikan.moe/v4/top/anime?filter=bypopularity';
 
 const zoekBtn = document.getElementById("search-btn");
 const zoekInput = document.getElementById("search-input");
@@ -55,7 +55,7 @@ function toonAnime(anime) {
             </div>
         </div>
 
-        <button class="fav-btn">❤️ Favoriet</button>
+        <button class="fav-btn">❤ Favoriet</button>
     `;
 
 //fav button
@@ -67,7 +67,7 @@ const favBtn = card.querySelector(".fav-btn");
     
     if (staatAlInLijst) {
         favBtn.classList.add("active");
-        favBtn.innerText = "❤️ In Favorieten";
+        favBtn.innerText = "❤ In Favorieten";
     }
 
     favBtn.addEventListener("click", () => {
@@ -78,13 +78,13 @@ const favBtn = card.querySelector(".fav-btn");
         if (index === -1) {
             actueleFavorieten.push(anime);
             favBtn.classList.add("active");
-            favBtn.innerText = "❤️ In Favorieten";
+            favBtn.innerText = "❤ In Favorieten";
 
             console.log("Toegevoegd:", anime.title);
         } else {
             actueleFavorieten.splice(index, 1);
             favBtn.classList.remove("active");
-            favBtn.innerText = "Favoriet";
+            favBtn.innerText = "❤ Favoriet";
 
             console.log("Verwijderd:", anime.title);
         }

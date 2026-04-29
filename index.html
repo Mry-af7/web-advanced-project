@@ -9,20 +9,41 @@
 </head>
 <body>
     <div id="app">
-        <header>
-            <h1>OtakuArchive</h1>
-            <!--NAVIGATIE-->
-            <div class="controls">
-                <input type="text" id="search-input" placeholder="Zoek een anime...">
-                <button id="search-btn">Zoek</button>
-                <button id="fav-list-btn">Mijn Favorieten</button>
+
+    <header>
+    <div class="header-container">
+        <div class="logo-section">
+            <h1 class="brand-title">
+                <span class="otaku">OTAKU</span>
+                <span class="archive">ARCHIVE</span>
+            </h1>
+        </div>
+
+        <nav class="header-nav">
+                <a href="#" id="home-link">Startpagina</a>
+                <a href="#" id="manga-link">Manga</a>
+                <a href="#" id="movie-link">Movies</a>
+                <a href="#" id="show-link">Shows</a>
+                <a href="#" id="top-link">Top Anime</a>
+        </nav>
+
+        <div class="controls-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Zoek je volgende avontuur...">
+                <button id="search-btn">ZOEK</button>
             </div>
-        </header>
+            <div class="action-buttons">
+                <button id="filter-btn">Filters</button>
+                <button id="fav-list-btn">❤ Mijn Favorieten</button>
+            </div>
+        </div>
+    </div>
+</header>
         
-        <!--KAARTEN-->
-        <main id="anime-list">
+    <!--KAARTEN-->
+    <main id="anime-list">
            
-        </main>
+    </main>
     </div>
 
     <script type="module" src="./src/js/main.js"></script>
