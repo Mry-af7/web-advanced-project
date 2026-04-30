@@ -9,6 +9,12 @@ const modal = document.getElementById("anime-modal");
 const modalDetails = document.getElementById("modal-details");
 const closeBtn = document.querySelector(".close-modal");
 
+const filterModal = document.getElementById("filter-modal");
+const filterBtn = document.getElementById("filter-btn");
+const closeFilter = document.getElementById("close-filter");
+const pasFilterToe = document.getElementById("pas-filter-toe");
+const resetFilter = document.getElementById("reset-filter");
+
 //navigatie links
 document.getElementById("logo-link").addEventListener("click", () => {
     haalAnimeOp();
@@ -32,6 +38,35 @@ document.getElementById("movie-link").addEventListener("click", () => {
 
 document.getElementById("show-link").addEventListener("click", () => {
     haalShows();
+});
+
+//filter 
+filterBtn.addEventListener("click", () => {
+    filterModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+});
+
+closeFilter.addEventListener("click", () => {
+    filterModal.style.display = "none";
+    document.body.style.overflow = "";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target == filterModal) {
+        filterModal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+});
+
+pasFilterToe.addEventListener("click", () => {
+    pasFiltersToe();
+});
+
+resetFilter.addEventListener("click", () => {
+    document.querySelectorAll('.filter-groep input').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.anime-card').forEach(kaart => kaart.style.display = '');
+    filterModal.style.display = "none";
+    document.body.style.overflow = "";
 });
 
 //functie voor data
@@ -116,7 +151,11 @@ function toonAnime(anime) {
 
     const card = document.createElement("article");
     card.classList.add("anime-card");
-
+    card.dataset.type = anime.type || "";
+    card.dataset.status = anime.status || "";
+    card.dataset.score = anime.score || 0;
+    card.dataset.genres = anime.genres ? anime.genres.map(g => g.name).join(',') : "";
+    
     //template
     card.innerHTML = `
         <img src="${anime.images.jpg.image_url}">
@@ -125,11 +164,12 @@ function toonAnime(anime) {
             <h2>${anime.title}</h2>
 
             <div class="anime-info">
-                <p>Score: ${anime.score}</p>
-                <p>Type: ${anime.type}</p>
+                <p>Score: ${anime.score ? anime.score : "Niet beschikbaar"}</p>
+                <p>Type: ${anime.type ? anime.type : "Onbekend"}</p>
                 ${anime.episodes ? `<p>Afleveringen: ${anime.episodes}</p>` : ''}
                 ${anime.chapters ? `<p>Hoofdstukken: ${anime.chapters}</p>` : ''}
-                <p>Status: ${anime.status}</p>
+                <p>Status: ${anime.status ? anime.status : "Onbekend"}</p>
+                <p>Rating: ${anime.rating ? anime.rating : "Geen rating"}</p>
             </div>
         </div>
 
@@ -186,8 +226,13 @@ const favBtn = card.querySelector(".fav-btn");
 
 //seach w button
 zoekBtn.addEventListener("click", () => {
-    const zoekTerm = zoekInput.value;
-    if (zoekTerm) {
+    const zoekTerm = zoekInput.value.trim();   
+    if (zoekTerm === "") {
+        zoekInput.style.border = "2px solid #e74c3c";   
+        zoekInput.placeholder = "Vul iets in...";
+    } else {
+        zoekInput.style.border = "";       
+        zoekInput.placeholder = "Zoek je volgende avontuur...";
         zoekAnime(zoekTerm);
     }
 });
@@ -247,6 +292,48 @@ window.onclick = (event) => {
         document.body.style.overflow = "";   
     }
 }
+
+//filter functie
+function pasFiltersToe() {
+    const kaarten = document.querySelectorAll('.anime-card');
+
+    kaarten.forEach(kaart => {
+        let tonen = true;
+
+        const typeChecks = document.querySelectorAll('.filter-groep:nth-child(2) input:checked');
+        if (typeChecks.length > 0) {
+            let typeMatch = false;
+            typeChecks.forEach(cb => {
+                if (cb.value === kaart.dataset.type) typeMatch = true;
+            });
+            if (!typeMatch) tonen = false;
+        }
+
+        const statusChecks = document.querySelectorAll('.filter-groep:nth-child(3) input:checked');
+        if (statusChecks.length > 0) {
+            let statusMatch = false;
+            statusChecks.forEach(cb => {
+                if (cb.value === kaart.dataset.status) statusMatch = true;
+            });
+            if (!statusMatch) tonen = false;
+        }
+
+        const scoreChecks = document.querySelectorAll('.filter-groep:nth-child(4) input:checked');
+        if (scoreChecks.length > 0) {
+            let scoreMatch = false;
+            scoreChecks.forEach(cb => {
+                if (Number(kaart.dataset.score) >= Number(cb.value)) scoreMatch = true;
+            });
+            if (!scoreMatch) tonen = false;
+        }
+
+        kaart.style.display = tonen ? '' : 'none';
+    });
+
+    filterModal.style.display = "none";
+    document.body.style.overflow = "";
+}
+
 
 haalAnimeOp();
 
