@@ -5,6 +5,20 @@ const apiURL = 'https://api.jikan.moe/v4/top/anime?filter=bypopularity';
 const zoekBtn = document.getElementById("search-btn");
 const zoekInput = document.getElementById("search-input");
 
+const modal = document.getElementById("anime-modal");
+const modalDetails = document.getElementById("modal-details");
+const closeBtn = document.querySelector(".close-modal");
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+window.onclick = (event) => {
+    if (event.target == modal) modal.style.display = "none";
+}
+
+document.getElementById("logo-link").addEventListener("click", () => {
+    haalAnimeOp();
+});
+
 //functie voor data
 async function haalAnimeOp() {
     try {
@@ -92,6 +106,13 @@ const favBtn = card.querySelector(".fav-btn");
         localStorage.setItem("mijnFavorieten", JSON.stringify(actueleFavorieten));
     });
 
+    // klik op kaart voor details (!= fav knop)
+    card.addEventListener("click", (e) => {
+        if (!e.target.classList.contains('fav-btn')) {
+            openModal(anime);
+        }
+    });
+
     animeList.appendChild(card);
 }
 
@@ -127,6 +148,23 @@ favListBtn.addEventListener("click", () => {
         });
     }
 });
+
+//Modal voor +info per anime
+function openModal(anime) {
+    modalDetails.innerHTML = `
+        <div class="modal-flex">
+            <img src="${anime.images.jpg.large_image_url}" alt="${anime.title}">
+            <div class="modal-text">
+                <h2>${anime.title}</h2>
+                <p><strong>Score:</strong> ⭐ ${anime.score || "N/A"}</p>
+                <p><strong>Gepubliceerd:</strong> ${anime.aired.string}</p>
+                <p><strong>Genres:</strong> ${anime.genres.map(g => g.name).join(", ")}</p>
+                <p class="synopsis">${anime.synopsis || "Geen samenvatting beschikbaar."}</p>
+            </div>
+        </div>
+    `;
+    modal.style.display = "block";
+}
 
 haalAnimeOp();
 
