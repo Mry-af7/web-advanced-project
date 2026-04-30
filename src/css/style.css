@@ -396,6 +396,37 @@ header {
     background-color: #7f8c8d;
 }
 
+/*Sorteer*/
+.sorteer-balk {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sorteer-balk label {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+#sorteer-select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#sorteer-select:hover {
+    border-color: #e74c3c;
+}
+
 
 @media (max-width: 1000px) {
 

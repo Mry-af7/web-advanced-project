@@ -15,6 +15,8 @@ const closeFilter = document.getElementById("close-filter");
 const pasFilterToe = document.getElementById("pas-filter-toe");
 const resetFilter = document.getElementById("reset-filter");
 
+const sorteerSelect = document.getElementById("sorteer-select");
+
 //navigatie links
 document.getElementById("logo-link").addEventListener("click", () => {
     haalAnimeOp();
@@ -67,6 +69,10 @@ resetFilter.addEventListener("click", () => {
     document.querySelectorAll('.anime-card').forEach(kaart => kaart.style.display = '');
     filterModal.style.display = "none";
     document.body.style.overflow = "";
+});
+
+sorteerSelect.addEventListener("change", () => {
+    sorteerKaarten(sorteerSelect.value);
 });
 
 //functie voor data
@@ -155,6 +161,7 @@ function toonAnime(anime) {
     card.dataset.status = anime.status || "";
     card.dataset.score = anime.score || 0;
     card.dataset.genres = anime.genres ? anime.genres.map(g => g.name).join(',') : "";
+    card.dataset.titel = anime.title || "";
     
     //template
     card.innerHTML = `
@@ -332,6 +339,20 @@ function pasFiltersToe() {
 
     filterModal.style.display = "none";
     document.body.style.overflow = "";
+}
+
+//Soteer functie
+function sorteerKaarten(keuze) {
+    const kaarten = Array.from(document.querySelectorAll('.anime-card'));
+    
+    kaarten.sort((a, b) => {
+        if (keuze === "score-hoog") return Number(b.dataset.score) - Number(a.dataset.score);
+        if (keuze === "score-laag") return Number(a.dataset.score) - Number(b.dataset.score);
+        if (keuze === "titel-az") return a.dataset.titel.localeCompare(b.dataset.titel);
+        if (keuze === "titel-za") return b.dataset.titel.localeCompare(a.dataset.titel);
+    });
+
+    kaarten.forEach(kaart => animeList.appendChild(kaart));
 }
 
 
