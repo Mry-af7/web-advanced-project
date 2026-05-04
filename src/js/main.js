@@ -1,4 +1,6 @@
 
+let origineleVolgorde = [];
+
 const animeList = document.getElementById("anime-list");
 const apiURL = 'https://api.jikan.moe/v4/top/anime?filter=bypopularity';
 
@@ -77,6 +79,7 @@ sorteerSelect.addEventListener("change", () => {
 
 //functie voor data
 async function haalAnimeOp() {
+    origineleVolgorde = []; 
     try {
         const reactie = await fetch(apiURL);
         const resultaat = await reactie.json();
@@ -92,6 +95,7 @@ async function haalAnimeOp() {
 
 //functie voor nav data
 async function haalTopAnime() {
+    origineleVolgorde = []; 
     try {
         const reactie = await fetch('https://api.jikan.moe/v4/top/anime?filter=favorite');
         const resultaat = await reactie.json();
@@ -104,6 +108,7 @@ async function haalTopAnime() {
 }
 
 async function haalManga() {
+    origineleVolgorde = []; 
     try {
         const reactie = await fetch('https://api.jikan.moe/v4/top/manga?limit=20');
         const resultaat = await reactie.json();
@@ -116,6 +121,7 @@ async function haalManga() {
 }
 
 async function haalMovies() {
+    origineleVolgorde = []; 
     try {
         const reactie = await fetch('https://api.jikan.moe/v4/top/anime?filter=bypopularity&type=movie&limit=20');
         const resultaat = await reactie.json();
@@ -128,6 +134,7 @@ async function haalMovies() {
 }
 
 async function haalShows() {
+    origineleVolgorde = []; 
     try {
         const reactie = await fetch('https://api.jikan.moe/v4/top/anime?filter=airing&type=tv&limit=20');
         const resultaat = await reactie.json();
@@ -227,6 +234,8 @@ const favBtn = card.querySelector(".fav-btn");
             openModal(anime);
         }
     });
+
+    origineleVolgorde.push(card); 
 
     animeList.appendChild(card);
 }
@@ -343,6 +352,11 @@ function pasFiltersToe() {
 
 //Soteer functie
 function sorteerKaarten(keuze) {
+    if (keuze === "standaard") {
+        origineleVolgorde.forEach(kaart => animeList.appendChild(kaart));
+        return;
+    }
+
     const kaarten = Array.from(document.querySelectorAll('.anime-card'));
     
     kaarten.sort((a, b) => {
