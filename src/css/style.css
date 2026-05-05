@@ -428,6 +428,121 @@ header {
     background-color: #c45c49;    
 }
 
+/*thema button*/
+#thema-btn {
+    margin-left: auto;        
+    background-color: #4F4F51;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#thema-btn:hover {
+    background-color: #2C2B30;
+}
+
+/* dark mode */
+body.dark {
+    background-color: #2C2B30;
+}
+
+body.dark header {
+    background-color: #1a1a1a;
+    border-bottom: 4px solid #D4829A;
+}
+
+body.dark .archive {
+    color: #D4829A;
+}
+
+body.dark #search-btn,
+body.dark #fav-list-btn,
+body.dark #filter-btn {
+    background-color: #D4829A;
+}
+
+body.dark .fav-btn {
+    border-color: #D4829A;
+    color: #D4829A;
+}
+
+body.dark .fav-btn.active {
+    background-color: #D4829A;
+    color: #2C2B30;
+}
+
+body.dark .sorteer-balk {
+    background-color: #2C2B30;
+}
+
+body.dark .anime-card {
+    background-color: #4F4F51;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+body.dark .card-content h2 {
+    color: #ffffff;
+}
+
+body.dark .anime-info {
+    color: #D6D6D6;
+}
+
+body.dark .sorteer-balk label {
+    color: #D6D6D6;
+}
+
+body.dark #sorteer-select {
+    background-color: #4F4F51;
+    color: #ffffff;
+    border-color: #666;
+}
+
+body.dark .modal-content {
+    background-color: #4F4F51;
+    color: #ffffff;
+}
+
+body.dark .filter-modal-content {
+    background-color: #4F4F51;
+}
+
+body.dark .filter-header h3 {
+    color: #D4829A;
+}
+
+body.dark .filter-groep h4 {
+    color: #D4829A;
+}
+
+body.dark .filter-groep label {
+    color: #D6D6D6;
+}
+
+body.dark #pas-filter-toe {
+    background-color: #D4829A;
+}
+
+body.dark .modal-text h2 {
+    color: #D4829A;
+}
+
+body.dark .modal-text p {
+    color: #D6D6D6;
+}
+
+body.dark .synopsis {
+    color: #D6D6D6;
+}
+
+body.dark #thema-btn {
+    background-color: #D4829A;
+}
+
 
 @media (max-width: 1000px) {
 

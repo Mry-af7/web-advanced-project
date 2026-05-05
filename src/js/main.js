@@ -19,6 +19,8 @@ const resetFilter = document.getElementById("reset-filter");
 
 const sorteerSelect = document.getElementById("sorteer-select");
 
+const themaBtn = document.getElementById("thema-btn");
+
 //navigatie links
 document.getElementById("logo-link").addEventListener("click", () => {
     haalAnimeOp();
@@ -75,6 +77,18 @@ resetFilter.addEventListener("click", () => {
 
 sorteerSelect.addEventListener("change", () => {
     sorteerKaarten(sorteerSelect.value);
+});
+
+themaBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    
+    if (document.body.classList.contains("dark")) {
+        themaBtn.textContent = "☀︎ Light Mode";
+        localStorage.setItem("thema", "dark");
+    } else {
+        themaBtn.textContent = "☾ Dark Mode";
+        localStorage.setItem("thema", "light");
+    }
 });
 
 //functie voor data
@@ -369,6 +383,12 @@ function sorteerKaarten(keuze) {
     kaarten.forEach(kaart => animeList.appendChild(kaart));
 }
 
+// keep thema bij refresh
+const opgeslagenThema = localStorage.getItem("thema");
+if (opgeslagenThema === "dark") {
+    document.body.classList.add("dark");
+    themaBtn.textContent = "☀︎ Light Mode";
+}
 
 haalAnimeOp();
 
