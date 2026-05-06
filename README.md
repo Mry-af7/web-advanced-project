@@ -88,16 +88,16 @@ Volg deze stappen om het project lokaal op te starten met Vite:
 ## 📚 Gebruikte bronnen
 
 *   **YouTube**: 
-    - Bro Code. (2023, 31 Mei). HTML & CSS Full Course for free 🌎[Video].YouTube. 
-        ->[Bekijk video](https://www.youtube.com/watch?v=HGTJBPNC-Gw&list=PLZPZq0r_RZOPP5Yjt6IqgytMRY5uLt4y3)
-    - Coding2GO. (2024, 7 augustus). Learn CSS FlexBox in 20 Minutes (Course)[Video].YouTube.
-        ->[Bekijk video](https://www.youtube.com/watch?v=wsTv9y931o8)
+    - Bro Code. (2023, 31 Mei). HTML & CSS Full Course for free 🌎 
+        -> [Bekijk video](https://www.youtube.com/watch?v=HGTJBPNC-Gw&list=PLZPZq0r_RZOPP5Yjt6IqgytMRY5uLt4y3)
+    - Coding2GO. (2024, 7 augustus). Learn CSS FlexBox in 20 Minutes (Course)
+        -> [Bekijk video](https://www.youtube.com/watch?v=wsTv9y931o8)
 
 *   **W3Schools**: 
     - Javascript Tutorial 
-        ->[Documentatie](https://www.w3schools.com/js/DEFAULT.asp)
+        -> [Documentatie](https://www.w3schools.com/js/DEFAULT.asp)
     - CSS Tutorial
-        ->[Documentatie](https://www.w3schools.com/css/)
+        -> [Documentatie](https://www.w3schools.com/css/)
 
 *   **Cursus Web Advanced**: 
     - voor de basisprincipes van de SPA-opdracht
