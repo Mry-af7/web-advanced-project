@@ -70,8 +70,18 @@ Volg deze stappen om het project lokaal op te starten met Vite:
 ## 🖼️ Screenshots
 
 ### Startpagina [light & dark mode]
-![Startpagina light](<img width="1918" height="943" alt="Image" src="https://github.com/user-attachments/assets/b21b680e-f880-4290-b912-e2613f92dc8c" />)
-![Startpagina dark](<img width="1919" height="945" alt="Image" src="https://github.com/user-attachments/assets/01aa86b0-2605-46c5-b5a7-1aeb1354704e" />)
+![Startpagina light](./images/Startpagina.png)
+![Startpagina dark](./images/Startpagina%20[dark].png)
+
+### Zoekfunctie + Filter
+![Zoekfunctie](./images/Web-adv_search.png)
+![filter](./images/Web-adv_filter.png)
+
+### Favorieten
+![Favorieten](./images/Web-adv_Mijn%20fav.png)
+
+### Detailoverzicht
+![Modal](./images/Web-adv_cardpopup.png)
 
 ---
 
