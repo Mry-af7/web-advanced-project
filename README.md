@@ -1,13 +1,13 @@
 # 🏯 Otaku Archive - Web Advanced Project
 
-**Projectbeschrijving**
 Otaku Archive is een single-page webapplicatie gemaakt voor het vak Web Advanced. Het project biedt een interactieve manier om anime te ontdekken via de Jikan API. Gebruikers kunnen zoeken naar titels, resultaten filteren op type of score, en hun favoriete anime opslaan in een persoonlijke collectie die bewaard blijft tussen sessies door.
 
 ---
 
 ## 🚀 Functionaliteiten
 
-*   **Zoeken op titel**: Vind direct specifieke anime via de zoekbalk.
+*   **Zoeken op titel**: 
+    - Vind direct specifieke anime via de zoekbalk.
 *   **Filter systeem**: Filter resultaten in een pop-up op type, status, score en genre.
 *   **Sorteren**: Sorteer de getoonde kaarten op titel (A-Z) of op score (hoog/laag).
 *   **Thema Switcher**: Wissel tussen Light Mode en Dark Mode.
@@ -19,7 +19,8 @@ Otaku Archive is een single-page webapplicatie gemaakt voor het vak Web Advanced
 
 ## 🌐 Gebruikte API's
 
-*   **Jikan API**: [https://jikan.moe/](https://jikan.moe/) - De onofficiële MyAnimeList API.
+*   **Jikan API**: 
+    - [https://docs.api.jikan.moe/](https://docs.api.jikan.moe/)
 
 ---
 
@@ -56,7 +57,7 @@ Volg deze stappen om het project lokaal op te starten met Vite:
 3.  **Development server starten**: 
     `npm run dev`
 4.  **Applicatie bekijken**: 
-    Open de browser op de link die in de terminal verschijnt -> `http://localhost:5173`
+     -> `http://localhost:5173`
 
 ---
 
