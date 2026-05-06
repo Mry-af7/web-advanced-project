@@ -8,12 +8,18 @@ Otaku Archive is een single-page webapplicatie gemaakt voor het vak Web Advanced
 
 *   **Zoeken op titel**: 
     - Vind direct specifieke anime via de zoekbalk.
-*   **Filter systeem**: Filter resultaten in een pop-up op type, status, score en genre.
-*   **Sorteren**: Sorteer de getoonde kaarten op titel (A-Z) of op score (hoog/laag).
-*   **Thema Switcher**: Wissel tussen Light Mode en Dark Mode.
-*   **Favorieten**: Sla anime op in een persoonlijke lijst met de hartjes-knop.
-*   **Detail Modal**: Klik op een kaart voor een pop-up met de synopsis en genres.
-*   **Responsive Design**: De layout past zich aan voor mobiel, tablet en desktop.
+*   **Filter systeem**: 
+    - Filter resultaten in een pop-up op type, status, score en genre.
+*   **Sorteren**: 
+    - Sorteer de getoonde kaarten op titel (A-Z) of op score (hoog/laag).
+*   **Thema Switcher**: 
+    - Wissel tussen Light Mode en Dark Mode.
+*   **Favorieten**: 
+    - Sla anime op in een persoonlijke lijst met de hartjes-knop.
+*   **Detail Modal**: 
+    - Klik op een kaart voor een pop-up met de synopsis en genres.
+*   **Responsive Design**: 
+    - De layout past zich aan voor mobiel, tablet en desktop.
 
 ---
 
@@ -51,13 +57,13 @@ Otaku Archive is een single-page webapplicatie gemaakt voor het vak Web Advanced
 Volg deze stappen om het project lokaal op te starten met Vite:
 
 1.  **Repository klonen**: 
-    `git clone https://github.com/Mry-af7/web-advanced-project.git`
+    - `git clone https://github.com/Mry-af7/web-advanced-project.git`
 2.  **Dependencies installeren**: 
-    `npm install`
+    - `npm install`
 3.  **Development server starten**: 
-    `npm run dev`
+    - `npm run dev`
 4.  **Applicatie bekijken**: 
-     -> `http://localhost:5173`
+    - -> `http://localhost:5173`
 
 ---
 
