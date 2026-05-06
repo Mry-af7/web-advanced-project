@@ -1,6 +1,7 @@
 
-let origineleVolgorde = [];
+let origineleVolgorde = []; //behoudt og volgorde van kaarten
 
+//DOM elementen
 const animeList = document.getElementById("anime-list");
 const apiURL = 'https://api.jikan.moe/v4/top/anime?filter=bypopularity';
 
@@ -46,7 +47,7 @@ document.getElementById("show-link").addEventListener("click", () => {
     haalShows();
 });
 
-//filter 
+//filter pop-up
 filterBtn.addEventListener("click", () => {
     filterModal.style.display = "block";
     document.body.style.overflow = "hidden";
@@ -64,6 +65,7 @@ window.addEventListener("click", (event) => {
     }
 });
 
+//filter toepassen en resetten
 pasFilterToe.addEventListener("click", () => {
     pasFiltersToe();
 });
@@ -75,10 +77,12 @@ resetFilter.addEventListener("click", () => {
     document.body.style.overflow = "";
 });
 
+//sorteer
 sorteerSelect.addEventListener("change", () => {
     sorteerKaarten(sorteerSelect.value);
 });
 
+//thema switcher
 themaBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
     
@@ -207,6 +211,7 @@ function toonAnime(anime) {
 //fav button
 const favBtn = card.querySelector(".fav-btn");
 
+    //check of anime al in fav zit + knop aanpassen
     let favorieten = JSON.parse(localStorage.getItem("mijnFavorieten")) || [];
 
     const staatAlInLijst = favorieten.some(fav => fav.mal_id === anime.mal_id);
@@ -235,6 +240,7 @@ const favBtn = card.querySelector(".fav-btn");
             console.log("Verwijderd:", anime.title);
         }
 
+        //card direct verwijderen van fav 
         if (document.getElementById("anime-list").dataset.view === "favorieten") {
             card.remove();
         }
@@ -357,6 +363,7 @@ function pasFiltersToe() {
             if (!scoreMatch) tonen = false;
         }
 
+        //kaart tonen/verbergen obv filter resultaat
         kaart.style.display = tonen ? '' : 'none';
     });
 
@@ -390,5 +397,6 @@ if (opgeslagenThema === "dark") {
     themaBtn.textContent = "☀︎ Light Mode";
 }
 
+//page opstarten met anime lijst
 haalAnimeOp();
 
