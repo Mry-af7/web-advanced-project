@@ -34,18 +34,18 @@ Otaku Archive is een single-page webapplicatie gemaakt voor het vak Web Advanced
 
 | Vereiste | Lijnnummers | Beschrijving (Waar in `main.js`?) |
 | :--- | :--- | :--- |
-| **Elementen selecteren** | 4, 15, 23 | `getElementById`, `querySelector` |
-| **Elementen manipuleren** | 158, 169 | `createElement`, `innerHTML` |
-| **Events koppelen** | 26, 75, 218 | `addEventListener` |
-| **Constanten (const)** | 4-23 | Overal gebruikt voor DOM en API |
-| **Template literals** | 169-180 | HTML strings met `${anime.title}` |
-| **Iteratie & array methodes** | 104, 188, 283 | `forEach`, `some`, `sort`, `map` |
-| **Arrow functions** | 26, 91, 233 | `() => { ... }` syntax |
-| **Ternary operator** | 175, 176 | Check voor episodes/chapters |
-| **Async & Await** | 98, 146 | `async function` en `await fetch()` |
-| **Fetch & JSON** | 101, 102 | Data ophalen en omzetten naar JSON |
-| **LocalStorage** | 211, 298 | Favorieten en thema opslaan |
-| **Formulier validatie** | 218-222 | Check op lege input + rode border |
+| **Elementen selecteren** | 5, 13, 23 | `getElementById`, `querySelector` |
+| **Elementen manipuleren** | 183, 192 | `createElement`, `innerHTML` |
+| **Events koppelen** | 26, 51, 81 | `addEventListener` |
+| **Constanten (const)** | 5-23 | Overal gebruikt voor DOM en API |
+| **Template literals** | 192-208 | HTML strings met `${anime.title}` |
+| **Iteratie & array methodes** | 106, 217, 384 | `forEach`, `some`, `sort`, `map` |
+| **Arrow functions** | 26, 86, 224 | `() => { ... }` syntax |
+| **Ternary operator** | 201, 202 | Check voor episodes/chapters |
+| **Async & Await** | 99, 141 | `async function` en `await fetch()` |
+| **Fetch & JSON** | 102, 103 | Data ophalen en omzetten naar JSON |
+| **LocalStorage** | 215, 394 | Favorieten en thema opslaan |
+| **Formulier validatie** | 266-273 | Check op lege input + rode border |
 | **Styling & layout** | ✔ | CSS Grid en Dark mode styling |
 | **Tooling: Vite project** | ✔ | Projectstructuur met Vite |
 | **Observer API** | X | /// |
